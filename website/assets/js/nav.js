@@ -1,29 +1,35 @@
 (function () {
-  var toggle = document.querySelector('.nav-toggle');
+  var triggerFor = new Map();
+
+  function bindToggle(trigger, target) {
+    triggerFor.set(target, trigger);
+    trigger.addEventListener('click', function () {
+      var open = target.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  var navToggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.textContent = open ? 'Menü schließen' : 'Menü öffnen';
+  if (navToggle && nav) {
+    bindToggle(navToggle, nav);
+    navToggle.addEventListener('click', function () {
+      navToggle.textContent = nav.classList.contains('open') ? 'Menü schließen' : 'Menü öffnen';
     });
   }
 
   document.querySelectorAll('.dropdown-toggle').forEach(function (btn) {
     var dropdown = btn.nextElementSibling;
-    if (!dropdown) return;
-    btn.addEventListener('click', function () {
-      var open = dropdown.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    if (dropdown) bindToggle(btn, dropdown);
   });
 
   function closeAll() {
-    document.querySelectorAll('.dropdown.open').forEach(function (d) {
-      d.classList.remove('open');
-      var btn = d.previousElementSibling;
-      if (btn) btn.setAttribute('aria-expanded', 'false');
+    document.querySelectorAll('.open').forEach(function (target) {
+      target.classList.remove('open');
+      var trigger = triggerFor.get(target);
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
     });
+    if (navToggle) navToggle.textContent = 'Menü öffnen';
   }
 
   document.addEventListener('keydown', function (e) {
@@ -31,6 +37,8 @@
   });
 
   document.addEventListener('click', function (e) {
-    if (!e.target.closest('.has-dropdown')) closeAll();
+    if (!e.target.closest('.has-dropdown') && !e.target.closest('.main-nav') && !e.target.closest('.nav-toggle')) {
+      closeAll();
+    }
   });
 })();
