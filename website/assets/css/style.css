@@ -1,0 +1,258 @@
+/* Schwerbehindertenvertretung Susanne Jorczik — Stylesheet
+   System fonts only, no external requests. */
+
+:root {
+  --accent: #F4E04D;
+  --navy: #1C3F5F;
+  --bg: #F7F8FA;
+  --text: #1A1A1A;
+  --border: #D7DCE2;
+  --focus: #1C3F5F;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: var(--navy);
+  text-decoration: underline;
+}
+a:hover { color: #14304a; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.nav-list > li > a:focus-visible,
+.nav-list > li > .dropdown-toggle:focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--accent);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---- Header ---- */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.logo img { height: 64px; width: auto; }
+
+.contact-line {
+  font-size: 0.95rem;
+  text-align: right;
+}
+.contact-line a { color: var(--text); text-decoration: none; }
+.contact-line a:hover { text-decoration: underline; }
+
+.nav-toggle {
+  display: none;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.nav-toggle:hover { background: #14304a; }
+
+/* ---- Nav ---- */
+.main-nav {
+  background: var(--navy);
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-list > li { position: relative; }
+
+.nav-list a,
+.nav-list .dropdown-toggle {
+  display: block;
+  padding: 0.9rem 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"],
+.nav-list .dropdown-toggle[aria-current="page"],
+.dropdown-toggle:hover {
+  background: var(--accent);
+  color: var(--navy);
+}
+
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 260px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  z-index: 10;
+}
+
+.dropdown a {
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  background: #fff;
+}
+.dropdown a:hover,
+.dropdown a[aria-current="page"] {
+  background: var(--accent);
+  color: var(--navy);
+}
+
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown,
+.has-dropdown .dropdown.open {
+  display: block;
+}
+
+/* ---- Main content ---- */
+.site-main {
+  background: #fff;
+}
+
+.page-title {
+  color: var(--navy);
+  padding-top: 1.5rem;
+}
+
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+.hero-img { flex: 0 0 300px; max-width: 300px; border-radius: 4px; }
+.hero > div { flex: 1 1 auto; }
+
+.content-section {
+  padding: 1.5rem 0;
+}
+
+.info-box {
+  background: #FFFBEA;
+  border-left: 5px solid var(--accent);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.note-box {
+  background: #EEF3F7;
+  border-left: 5px solid var(--navy);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.download-list {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+.download-list li {
+  border-bottom: 1px solid var(--border);
+}
+.download-list a {
+  display: block;
+  padding: 0.75rem 0.25rem;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--navy);
+  color: #fff;
+  padding: 2rem 0 1.5rem;
+  margin-top: 2rem;
+}
+.site-footer a { color: var(--accent); }
+
+.footer-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+}
+.footer-cols > div { flex: 1 1 240px; }
+.footer-cols h2,
+.footer-cols h3 {
+  font-size: 1rem;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.footer-legal {
+  border-top: 1px solid rgba(255,255,255,0.25);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ---- Responsive: single breakpoint ---- */
+@media (max-width: 800px) {
+  .nav-toggle { display: inline-block; }
+
+  .contact-line { text-align: left; width: 100%; }
+
+  .main-nav {
+    display: none;
+  }
+  .main-nav.open { display: block; }
+
+  .nav-list { flex-direction: column; }
+
+  .dropdown {
+    position: static;
+    border: none;
+    box-shadow: none;
+    min-width: 0;
+  }
+  .dropdown a { padding-left: 2rem; }
+
+  .hero { flex-direction: column; }
+  .hero-img { max-width: 100%; flex-basis: auto; }
+}
