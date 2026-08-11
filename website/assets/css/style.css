@@ -63,7 +63,13 @@ a:hover { color: #14304a; }
   padding: 1rem 0;
 }
 
+.logo { display: flex; align-items: center; gap: 0.75rem; }
 .logo img { height: 64px; width: auto; }
+.site-title {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
 
 .contact-line {
   font-size: 0.95rem;
@@ -225,6 +231,7 @@ a:hover { color: #14304a; }
   color: var(--accent);
   margin: 0 0 0.5rem;
 }
+.footer-cols p { margin: 0; }
 
 .footer-legal {
   border-top: 1px solid rgba(255,255,255,0.25);
