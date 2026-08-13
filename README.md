@@ -4,11 +4,11 @@ Statische Website (reines HTML/CSS/JS, kein Build-Schritt) der Schwerbehinderten
 für Lehrkräfte an Gymnasien, Weiterbildungskollegs und Zentren für schulpraktische
 Lehrerausbildung bei der Bezirksregierung Arnsberg.
 
-**Live:** https://soerenjo.github.io/SBV-Website/
+**Live:** https://sbv-gy-arnsberg.com/
 
 ## Deployment
 
-Gehostet über GitHub Pages, Quelle: `master`-Branch, Root-Verzeichnis. Jeder Push auf
+Gehostet über Cloudflare Pages, Quelle: `master`-Branch, Root-Verzeichnis. Jeder Push auf
 `master` löst automatisch einen neuen Build/Deploy aus (kein manueller Schritt nötig).
 
 ## Lokal ansehen
