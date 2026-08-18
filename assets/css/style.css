@@ -258,6 +258,10 @@ a:hover { color: var(--navy-dark); }
 
 /* ---- Responsive: single breakpoint ---- */
 @media (max-width: 960px) {
+  .header-top { padding-left: 1.5rem; padding-right: 1.5rem; row-gap: 0.4rem; }
+
+  .logo { margin-left: -6px; }
+
   .nav-toggle { display: inline-block; }
 
   .contact-line { text-align: left; width: 100%; }

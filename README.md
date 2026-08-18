@@ -14,9 +14,13 @@ Gehostet über Cloudflare Pages, Quelle: `master`-Branch, Root-Verzeichnis. Jede
 ## Lokal ansehen
 
 ```bash
-python3 -m http.server 4173
+python3 serve.py
 ```
 und dann `http://localhost:4173` öffnen. (Config dafür liegt auch in `.claude/launch.json`.)
+
+Die Seiten sind intern ohne `.html`-Endung verlinkt (z.B. `/aktuelles`), passend zu Cloudflare
+Pages' Clean-URL-Verhalten in Produktion. `serve.py` bildet dieses Verhalten lokal nach
+(`python3 -m http.server` allein würde bei diesen Links "Cannot GET /..." liefern).
 
 ## Seitenübersicht
 
