@@ -21,6 +21,13 @@
   document.querySelectorAll('.dropdown-toggle').forEach(function (btn) {
     var dropdown = btn.nextElementSibling;
     if (dropdown) bindToggle(btn, dropdown);
+    // Per Tastatur aus dem Untermenü heraus-getabbt → schließen
+    btn.parentElement.addEventListener('focusout', function (e) {
+      if (dropdown && !btn.parentElement.contains(e.relatedTarget)) {
+        dropdown.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 
   function closeAll() {
